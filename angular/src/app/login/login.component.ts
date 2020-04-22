@@ -35,8 +35,9 @@ export class LoginComponent implements OnInit {
             if(res[0]['username'] == username && res[0]['password'] == password)
             {
               console.log("right user both are correct");
+             // this.router.navigate(['/homepage']);
+              this.http.datafromlogin(true);;
               this.router.navigate(['/homepage']);
-
             }
             else{
               console.log("else in login")

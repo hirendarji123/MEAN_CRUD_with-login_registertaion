@@ -22,7 +22,7 @@ export class HttpserviceService {
   updaataId;
   getdataresult :String;
   allowuser:boolean= false;
-
+  userForCanActive:boolean;
   
   senddata(data : Registrationdata) 
   {
@@ -89,12 +89,20 @@ deletedataofuser(id)
    return this.httpClient.delete(this.baseURLOFUserDevice+id);
 }
 
-datapassingtoupdate(id)
-{
-  this.updaataId=id;
-}
-updatedataById(id:string ,data)
-{
-  return this.httpClient.put(this.baseURLOFUserDevice+id,data);
-}
+    datapassingtoupdate(id)
+    {
+      this.updaataId=id;
+    }
+    
+    updatedataById(id:string ,data)
+    {
+      return this.httpClient.put(this.baseURLOFUserDevice+id,data);
+    }
+
+    datafromlogin(user:boolean)
+    {
+      this.userForCanActive =user;
+    }
+
+
 }

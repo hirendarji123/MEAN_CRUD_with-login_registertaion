@@ -15,7 +15,7 @@ import { AdduserComponent } from './adduser/adduser.component';
 import { ShowuserComponent } from './showuser/showuser.component';
 
 import { UpdateofuserComponent } from './updateofuser/updateofuser.component';
-
+import { AuthgaurdGuard} from './authgaurd.guard';
 
 
 @NgModule({
@@ -37,7 +37,7 @@ import { UpdateofuserComponent } from './updateofuser/updateofuser.component';
     
     
   ],
-  providers: [HttpserviceService],
+  providers: [HttpserviceService,AuthgaurdGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

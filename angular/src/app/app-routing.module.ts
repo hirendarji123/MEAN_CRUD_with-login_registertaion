@@ -6,7 +6,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { ShowuserComponent } from './showuser/showuser.component';
 import { UpdateofuserComponent } from './updateofuser/updateofuser.component';
-
+import {AuthgaurdGuard as authgaurd} from './authgaurd.guard';
 
 const routes: Routes = [
   {
@@ -17,14 +17,15 @@ const routes: Routes = [
     path:'registration' ,component :RegistrationComponent
   },
   {
-    path:'homepage' ,component:HomepageComponent
+    path:'homepage' ,component:HomepageComponent ,canActivate:[authgaurd]
   },
-  {path:'adduser',component :AdduserComponent},
-  {
-    path:'showuser',component:ShowuserComponent
+  {path:'adduser',component :AdduserComponent , canActivate:[authgaurd]
   },
   {
-    path:'update' ,component:UpdateofuserComponent
+    path:'showuser',component:ShowuserComponent,canActivate:[authgaurd]
+  },
+  {
+    path:'update' ,component:UpdateofuserComponent,canActivate:[authgaurd]
   }
 ];
 
