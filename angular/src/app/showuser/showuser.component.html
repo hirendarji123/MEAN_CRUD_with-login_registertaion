@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+
+    <a class="navbar-brand" href="#">
+        <img src="../assets/0.png" alt="Logo" style="width:60px; height: 50px;">
+    </a>
+
+
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+            <a class="nav-link" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" routerLink="/adduser">Add User</a>
+        </li>
+        <li class="nav-item">
+
+            <a class="nav-link"  routerLink="/showuser" >   show user</a>
+        </li>
+        
+        <li class="nav-item">
+
+            <a class="nav-link"  routerLink="/login" >Logout</a>
+        </li>
+
+    </ul>
+</nav>
+
+
+
+
+<div class="container">
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>User name</th>
+                <th>User Id</th>
+                <th>Mobile NO</th>
+                <th>E-mail</th>
+                <th>Device Name</th>
+                <th>Department Name</th>
+                <th>Delete</th>
+                <th>Update</th>
+        
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of showdata">
+        
+
+                <td>{{item.username}}</td>
+                <td>{{item.userId}}</td>
+                <td>{{item.MobileNo}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.DeviceName}}</td>
+                <td>{{item.DepartmentName}}</td>
+                <td ><button class="btn btn-primary" (click)="delete1(item._id)">Delete</button></td>
+                <td ><button class="btn btn-primary" (click)="update(item._id)">Update</button></td>
+    
+    
+            </tr>
+    
+        </tbody>
+        
+    </table>
+</div>

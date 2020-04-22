@@ -1,0 +1,123 @@
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+
+    <a class="navbar-brand" href="#">
+        <img src="../assets/0.png" alt="Logo" style="width:60px; height: 50px;">
+    </a>
+
+
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+            <a class="nav-link" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" routerLink="/adduser">Add User</a>
+        </li>
+        <li class="nav-item">
+
+            <a class="nav-link"  routerLink="/showuser" >   show user</a>
+        </li>
+        
+        <li class="nav-item">
+
+            <a class="nav-link"  routerLink="/login" >Logout</a>
+        </li>
+
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header  "><b>Update User Details</b></div>
+
+                <div class="card-body">
+                    <form class="form-horizontal"   [formGroup]="form" >
+                        
+                        <div class="form-group">
+                            <label for="name" class="cols-sm-2 control-label">User name</label>
+                            <br/>
+                            <label class="text-danger" *ngIf="form.controls['username'].invalid  && (form.controls['username'].dirty || form.controls['username'].touched)"><p>Enter your User Name</p></label>
+                           
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                    <input type="text"  class="form-control" id="username" [(ngModel)]="userDataOfUpdate.username" formControlName="username"  placeholder="Enter your username" required/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="cols-sm-2 control-label">User Id</label>
+                            <br/>
+                            <label class="text-danger" *ngIf="form.controls['userId'].invalid  && (form.controls['userId'].dirty || form.controls['userId'].touched)"><p>Enter your User Id</p></label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" [(ngModel)]="userDataOfUpdate.userId"  formControlName="userId" id="userId" placeholder="Enter your userId" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="username" class="cols-sm-2 control-label">Mobile No</label>
+                            <br/>
+                            <label class="text-danger" *ngIf="form.controls['MobileNo'].invalid  && (form.controls['MobileNo'].dirty || form.controls['MobileNo'].touched)"><p>Enter your Mobile No</p></label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" [(ngModel)]="userDataOfUpdate.MobileNo" formControlName="MobileNo" name="MobileNo" id="MobileNo" placeholder="Enter your MobileNo" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username" class="cols-sm-2 control-label">E-mail</label>
+                            <br/>
+                            <label class="text-danger" *ngIf="form.controls['email'].invalid  && (form.controls['email'].dirty || form.controls['email'].touched)"><p>Enter your E-mail</p></label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" [(ngModel)]="userDataOfUpdate.email" formControlName="email" name="email" id="email" placeholder="Enter your email" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username" class="cols-sm-2 control-label">Device Name</label>
+                            <br/>
+                            <label class="text-danger" *ngIf="form.controls['DeviceName'].invalid  && (form.controls['DeviceName'].dirty || form.controls['DeviceName'].touched)"><p>Enter your Device Name</p></label>
+                            
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" [(ngModel)]="userDataOfUpdate.DeviceName" formControlName="DeviceName" name="DeviceName" id="DeviceName" placeholder="Enter your DeviceName" />
+                                </div>
+                            </div>
+                        </div>
+                     
+                        <div class="form-group">                         
+                            <label for="password" class="cols-sm-2 control-label">Department Name</label>
+                            <br/>
+                            <label class="text-danger" *ngIf="form.controls['DepartmentName'].invalid  && (form.controls['DepartmentName'].dirty || form.controls['DepartmentName'].touched)"><p>Enter your DepartmentName</p></label>
+                            
+                           
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" [(ngModel)]="userDataOfUpdate.DepartmentName" formControlName="DepartmentName" name="DepartmentName" id="DepartmentName" placeholder="Enter your DepartmentName" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group ">
+                            <button type="button"  [disabled]="!form.valid" (click)="onsubmit()" class="btn btn-primary btn-lg btn-block login-button">add User</button>
+                        </div>
+
+
+
+
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
