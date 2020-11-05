@@ -7,6 +7,7 @@ import { AdduserComponent } from './adduser/adduser.component';
 import { ShowuserComponent } from './showuser/showuser.component';
 import { UpdateofuserComponent } from './updateofuser/updateofuser.component';
 import {AuthgaurdGuard as authgaurd} from './authgaurd.guard';
+import { DevicewithuserComponent } from './devicewithuser/devicewithuser.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,9 @@ const routes: Routes = [
   },
   {
     path:'update' ,component:UpdateofuserComponent,canActivate:[authgaurd]
+  },
+  {
+    path:'devicewithuser',component:DevicewithuserComponent
   }
 ];
 

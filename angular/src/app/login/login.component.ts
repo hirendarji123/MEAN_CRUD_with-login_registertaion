@@ -20,24 +20,26 @@ export class LoginComponent implements OnInit {
         password : new FormControl('')
       });
     }
-  
+
     onsubmit()
     {
-        console.log(this.forms.controls['username'].value);
-        console.log(this.forms.get('password').value);
+        console.log("username" + this.forms.controls['username'].value);
+        console.log("password" + this.forms.get('password').value);
 
         var username = this.forms.get('username').value;
         var password = this.forms.get('password').value;
-       
+
         this.http.getdata(username).subscribe(res=>
           {
             //console.log(res);
             if(res[0]['username'] == username && res[0]['password'] == password)
             {
-              console.log("right user both are correct");
+              console.log("right user both are correct id and password");
              // this.router.navigate(['/homepage']);
               this.http.datafromlogin(true);;
               this.router.navigate(['/homepage']);
+              this.http.userLogin();
+              localStorage.setItem('userstates', 'true');
             }
             else{
               console.log("else in login")
@@ -45,10 +47,10 @@ export class LoginComponent implements OnInit {
 
             }
           });
-        
-        
+
+
     }
-  
-    
+
+
 
 }

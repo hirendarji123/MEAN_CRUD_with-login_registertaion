@@ -18,9 +18,6 @@ showdata:any;
       {
         
         this.showdata = res as Registrationdata [];
-        ;
-
-      //  this.showdata = res as Registrationdata[];
         console.log( this.showdata);
       });
   }
@@ -44,5 +41,12 @@ showdata:any;
       this.http.datapassingtoupdate(id);
       this.router.navigate(['/update']);
     }
+
+
+  onLogout()
+  {
+    console.log("in logout");
+    this.http.userLogout();
+  }
 
 }

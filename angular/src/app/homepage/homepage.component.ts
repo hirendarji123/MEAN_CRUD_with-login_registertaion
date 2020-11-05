@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { HttpserviceService} from '../httpservice.service';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpserviceService) { }
 
   ngOnInit(): void {
   }
 
+  onLogout()
+  {
+    console.log("in logout");
+    this.http.userLogout();
+  }
 }

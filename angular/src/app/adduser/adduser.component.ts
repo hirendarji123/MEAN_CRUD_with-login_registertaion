@@ -28,6 +28,14 @@ data = new Data();
       });
   }
 
+
+  onLogout()
+  {
+    console.log("in logout");
+    this.http.userLogout();
+  }
+  
+
   onsubmit()
             {
               

@@ -1,0 +1,32 @@
+
+
+    <form #addressForm="ngForm"  (ngSubmit)="logValue(addressForm.value)">
+    
+        <table>     
+            
+            <tr  *ngFor="let device of devices; let i = index;">
+              
+               
+                        <div class="form-group">
+                            
+                           <label><b>device name:-</b></label> <input type="text" [(ngModel)]="device.name" name="device.name"  placeholder="enter device name">
+                           &nbsp;&nbsp;&nbsp;&nbsp; <label><b>device mac:-</b></label> <input type="text" [(ngModel)]="device.mac" name="device.mac" placeholder="enter device name">
+                           &nbsp;&nbsp;&nbsp;&nbsp; <label><b>device type:-</b></label> <input type="text" [(ngModel)]="device.type" name="device.type" placeholder="enter device name">
+                           
+                           &nbsp;&nbsp;&nbsp;&nbsp; 
+                           &nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-danger " (click)="removeAddress(i)">Remove</button>
+                        </div>
+                       
+            
+            </tr>
+      
+        </table>           
+                            <div >
+                                <button type="button" class="btn btn-primary" (click)="addAddress()">Add Address</button>
+                                <input type="submit" class="btn btn-success " value="Submit"/>
+                            </div>
+ 
+
+      
+      </form>
+

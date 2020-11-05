@@ -16,6 +16,7 @@ import { ShowuserComponent } from './showuser/showuser.component';
 
 import { UpdateofuserComponent } from './updateofuser/updateofuser.component';
 import { AuthgaurdGuard} from './authgaurd.guard';
+import { DevicewithuserComponent } from './devicewithuser/devicewithuser.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AuthgaurdGuard} from './authgaurd.guard';
     HomepageComponent,
     AdduserComponent,
     ShowuserComponent,
-    UpdateofuserComponent
+    UpdateofuserComponent,
+    DevicewithuserComponent
   ],
   imports: [
     BrowserModule,

@@ -13,17 +13,30 @@ export class AuthgaurdGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
-      if(this.http.userForCanActive == true)
+      let login =localStorage.getItem('userstates');
+      console.log(login);
+
+
+       if(this.http.userForCanActive === true)
       {
-        
+        console.log("in can active");
         return true;
       }
-      else{
-        alert("U R NOT ALLOW PLEASE FIRST LOGIN");
-        this.router.navigate(['/login']);
-        return false;
+      else
+      {
+          //console.log(this.http.userLoginstates);
+            if(login === 'true')
+            {
+              console.log("in login function()");
+              return true;
+            }
+            else
+            {
+              alert("U R NOT ALLOW PLEASE FIRST LOGIN");
+              this.router.navigate(['/login']);
+              return false;
+            }
       }
   }
-  
+
 }

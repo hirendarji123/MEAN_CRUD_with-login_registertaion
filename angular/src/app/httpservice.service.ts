@@ -15,24 +15,37 @@ export class HttpserviceService {
 
  baseURLOFUser = 'http://localhost:3000/user/';
   baseURLOFUserDevice = 'http://localhost:3000/usersofdevice/';
-  
+
   constructor(private httpClient: HttpClient) {}
-  
+
   username;
   updaataId;
   getdataresult :String;
   allowuser:boolean= false;
   userForCanActive:boolean;
-  
-  senddata(data : Registrationdata) 
+  userLoginstates:boolean;
+
+  userLogin()
+  {
+    //this.userLoginstates = true;
+  }
+  userLogout()
+  {
+    let logout = localStorage.setItem('userstates', 'false');
+    console.log(logout);
+  }
+
+
+
+  senddata(data : Registrationdata)
   {
     this.username=data['username'];
     //console.log("senddata angular: ",data);
 
-    
+
 
     this.getdata( this.username).subscribe(res=>{
-      
+
       if(res.length == 0 )
       {
         console.log("in if of get");
@@ -42,13 +55,13 @@ export class HttpserviceService {
       {
       console.log("response of server: ",res);
       }
-    
+
       if(this.getdataresult === "no user avaliable")
       {
          return this.httpClient.post(this.baseURLOFUser,data).subscribe(res=>
           {
             console.log("sucess data send bcz not samre user name");
-          }); 
+          });
       }
       else{
            console.log("username alerdy exist");
@@ -56,9 +69,9 @@ export class HttpserviceService {
 
     });;
     }
-   
- 
- 
+
+
+
     getdata(username)
   {
     return this.httpClient.get<any[]>(this.baseURLOFUser+username)
@@ -93,7 +106,7 @@ deletedataofuser(id)
     {
       this.updaataId=id;
     }
-    
+
     updatedataById(id:string ,data)
     {
       return this.httpClient.put(this.baseURLOFUserDevice+id,data);
